@@ -18,9 +18,12 @@ const { NotImplementedError } = require('../extensions/index.js');
 function repeater(str, options) {
   const repeatTimes = options.repeatTimes || 1;
   const separator = options.separator === undefined ? '+' : options.separator;
-  const addition = options.addition === undefined ? '' : options.addition;
+  let addition = options.addition === undefined ? '' : options.addition;
   const additionRepeatTimes = options.additionRepeatTimes || 1;
   const additionSeparator = options.additionSeparator === undefined ? '|' : options.additionSeparator;
+  
+  typeof str !== 'string' ? str = String(str) : str;
+  typeof addition !== 'string' ? addition = String(addition) : addition;
   
   let result = '';
   let subResult = '';
