@@ -24,7 +24,7 @@ class VigenereCipheringMachine {
     this.direct = direct;
   }
 
-  processString(message, key, encrypt) {
+  processString(message, key, encrypt = true) {
     if (!message || !key) {
       throw new Error("Incorrect arguments!");
     }
