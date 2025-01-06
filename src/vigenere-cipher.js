@@ -38,7 +38,7 @@ class VigenereCipheringMachine {
     for (let i = 0; i < message.length; i++) {
       const char = message[i];
 
-      if (char >= "A" && char <= "Z") {
+      if (char >= 'A' && char <= 'Z') {
         const description = encrypt ? 1 : -1;
         const charCode = ((char.charCodeAt() - 65 + description * (key[index % key.length].charCodeAt() - 65) + 26) % 26) +  65;
         result += String.fromCharCode(charCode);
@@ -47,8 +47,7 @@ class VigenereCipheringMachine {
         result += char;
       }
     }
-
-    return this.direct ? result : result.split("").reverse().join("");
+    return this.direct ? result : result.split('').reverse().join('');
   }
 
   encrypt(message, key) {
